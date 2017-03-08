@@ -1,0 +1,76 @@
+<!doctype html>
+<html ng-app="todoApp">
+  <head>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="todo.js"></script>
+    <!-- <link href="todo.css" rel="stylesheet" > -->
+    <link href="node_modules/bootstrap-table/docs/assets/bootstrap/css/bootstrap.css" rel="stylesheet" >	
+  </head>
+  <body>
+	<div class="container">  
+		<h2>Percentile Rank</h2>
+		<div ng-controller="TodoListController as todoList">
+
+		
+	  <div class="panel panel-default">
+		<div class="panel-body">
+		
+		  <form ng-submit="todoList.addTodo()" class="form-inline">
+			<input type="text" ng-model="todoList.todoName"  placeholder="Student Name" required="required" class="form-control">	
+			<input type="number" step="0.01" ng-model="todoList.todoGPA"  placeholder="Student GPA" required="required" class="form-control">			
+			<button type="submit" class="btn btn-primary">Submit</button>			
+		  </form>
+		
+		
+		</div>
+	  </div>		
+
+
+
+	  <div class="panel panel-default">
+		<div class="panel-body">
+		
+			  <table class="table table-bordered">
+				<thead>
+				  <tr>
+					<th>Student Name</th>
+					<th>Student GPA</th>
+					<th>PR</th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <tr ng-repeat="todo in todoList.todos track by $index">
+					<td><input type="checkbox" ng-model="todo.done"> {{todo.name}}</td>
+					<td>{{todo.gpa}}</td>
+					<td>DUMMY</td>
+				  </tr>
+				</tbody>
+			  </table>	  
+					  
+					  
+				<a href="" ng-click="todoList.archive()" class="btn btn-primary">DELETE SELECTED</a>	
+		
+		
+		</div>
+	  </div>		
+	  
+
+<!--
+		  <ul class="unstyled">
+			<li ng-repeat="todo in todoList.todos">
+			  <label class="checkbox">
+				<input type="checkbox" ng-model="todo.done">
+				<span class="done-{{todo.done}}">{{todo.name}}</span> - 
+				<span class="done-{{todo.done}}">{{todo.gpa}}</span>
+			  </label>
+			</li>
+		  </ul>	
+-->
+
+		  
+	  
+		  
+		</div>
+    </div>	
+  </body>
+</html>
